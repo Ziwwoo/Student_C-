@@ -1,0 +1,37 @@
+#include <iostream>
+
+//пум пум
+class Student {
+public:
+	Student(std::string name, int age) : m_name(name), m_age(age) {}
+	void display() {
+		std::cout << "Name: " << m_name << std::endl;
+		std::cout << "Age: " << m_age << std::endl;
+	}
+private:
+	std::string m_name;
+	int m_age;
+};
+
+class Aspirant : public Student {
+public:
+	Aspirant(std::string name, int age, std::string researchTopic) : Student(name, age), m_researchTopic(researchTopic) {}
+	void display() {
+		Student::display();
+		std::cout << "Research Topic: " << m_researchTopic << std::endl;
+	}
+private:
+	std::string m_researchTopic;
+};
+
+int main() {
+	Student s1("Alice", 20);
+	Aspirant a1("Bob", 25, "Machine Learning");
+	std::cout << "Student Information:" << std::endl;
+	s1.display();
+
+	std::cout << "\nAspirant Information:" << std::endl;
+	a1.display();
+
+	return 0;
+}
